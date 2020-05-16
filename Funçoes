@@ -1,0 +1,49 @@
+#AdicionarUmCadastro
+def AddCadastro(leak):
+    resp = "S"
+    while resp =="S":
+        tag = input("\nInsira uma TAG: ").upper()
+        leak[tag] = [input("Insira um e-mail: "), input("Insira a senha do e-mail: ")]
+        resp = input("Deseja adicionar um novo cadastro? (S ou N): ").upper()
+
+#ExibirCadastros
+def ExibirCadastros(leak):
+    for tag, lista in leak.items():
+        print("\nTag   - ", tag)
+        print("Email - ", lista[0])
+        print("Senha - ", lista[1])       
+    tmp = input("\nPrecione Enter para continuar")
+
+#ProcurarCadastro
+def ProcurarCadastro(leak):
+    busca = input("\nQual TAG deseja buscar: ").upper()
+    if leak.get(busca) != None:
+        lista = leak.get(busca)
+        print("\nEmail......... ", lista[0])
+        print("Senha......... ", lista[1])
+    else:
+        print("TAG nao encontrada!")
+    tmp = input("\nPrecione Enter para continuar")
+
+#AlterandoInformacoes
+def AlterarInfos(leak):
+    alteracao = input("\nDigite a TAG do cadastro que deseja alterar: ").upper()
+    if leak.get(alteracao) != None:
+        lista = leak.get(alteracao)
+        leak[alteracao] = [input("Digite o novo e-mail: "), lista [1]]
+        lista = leak.get(alteracao)
+        leak[alteracao] = [lista[0], input("Digite a nova senha: ")]
+        lista = leak.get(alteracao)
+        print("\nEmail......... ", lista[0])
+        print("Senha......... ", lista[1])
+    else:
+        print("TAG nao encontrada!")
+    tmp = input("\nPrecione Enter para continuar")
+
+#DeletarCadastro
+def DeletarCadastro(leak):
+    deletar = input("\nQual Cadastro deseja deletar: ").upper()
+    if leak.get(deletar) != None:
+        del leak[deletar]
+    else:
+        print("TAG nao encontrada!")
