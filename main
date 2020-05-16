@@ -1,0 +1,36 @@
+#Sistema de Cadastro da empresa Contoso.
+#Empresa, email e senha fictícios.
+#Sistema disponivel para o administrador da empresa.
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
+from funcoescontoso import *
+
+infos = {"SUPORTE": ["suportecontoso@contoso.com.br", "SuporteContoso@101"], "TI": ["equipeticontoso@contoso.com.br", "Equ1p3Ti@123"], "MANUTENÇAO": ["manutencaocontoso@contoso.com.br", "ManuT3ncAo@500"]}
+resp = "S"
+opcao = 0
+while resp == "S":
+    print (Fore.YELLOW + "\nSistema de Cadastro da empresa Contoso\n" + Style.RESET_ALL)
+    print ("1 - Adicionar um novo cadastro")
+    print ("2 - Exibir todos os cadastros")
+    print ("3 - Procurar um cadastro")
+    print ("4 - Alterar as informações de um cadastro")
+    print ("5 - Deletar Cadastro")
+    print ("6 - Sair")
+    print ()
+    opcao = int(input("Escolha uma opção: "))
+    if opcao == 1:
+        AddCadastro(infos)
+    elif opcao == 2:
+        ExibirCadastros(infos)
+    elif opcao == 3:
+        ProcurarCadastro(infos)
+    elif opcao == 4:
+        AlterarInfos(infos)
+    elif opcao == 5:
+        DeletarCadastro(infos)
+    elif opcao == 6:
+        print (Fore.RED + "\nFerramenta encerrada." + Style.RESET_ALL)
+        exit()
+    else:
+        print (Fore.RED + "\nOpção invalida." + Style.RESET_ALL)
